@@ -1,8 +1,16 @@
+import { Field } from "formik"
 
-const SearchBox = () => {
+const SearchBox = ({filter, handleFilterChange}) => {
   return (
-    <div>SearchBox</div>
+    <Field 
+    as='input'
+    text='text'
+    name='filter'
+    value={filter}
+    onChange={handleFilterChange}
+    placeholder='Search contacts'
+    />
   )
 }
 
-export default SearchBox
+export default SearchBox;
