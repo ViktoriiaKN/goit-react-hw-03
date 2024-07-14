@@ -1,12 +1,16 @@
+import style from './Contact.module.css';
+
 const Contact = ({ contact }) => {
   return (
-    <div>
-      <li>
-        {contact.name}: {contact.number}
-      </li>
-    </div>
+    <li className={style.contactItem}>
+      <div>
+        <p className={style.contactName}></p>
+        <p>
+          {contact.name}: {contact.number}{' '}
+        </p>
+      </div>
+    </li>
   );
 };
 
 export default Contact;
- /* changes */

@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 
 const ContactForm = () => {
   return (
