@@ -1,9 +1,9 @@
-import { Formik } from 'formik'
-import './App.css'
-import ContactForm from './components/ContactForm/ContactForm'
-import ContactList from './components/ContactList/ContactList'
-import SearchBox from './components/SearchBox/SearchBox'
-import { useState } from 'react'
+import { Formik } from 'formik';
+import './App.css';
+import ContactForm from './components/ContactForm/ContactForm';
+import ContactList from './components/ContactList/ContactList';
+import SearchBox from './components/SearchBox/SearchBox';
+import { useState } from 'react';
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -15,23 +15,35 @@ function App() {
 
   const [filter, setFilter] = useState('');
 
-const handleFilterChange = (e) => {
-  setFilter(e.target.value);
-}
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value);
+  };
 
-const filteredContacts = contacts.filter(contact => contact.name.toLowerCase().includes(filter.toLocaleLowerCase()));
+  const addContact = (newContact) => {
+    setContacts((prevContacts) => [...prevContacts, newContact]);
+  };
+
+  const filteredContacts = contacts.filter((contact) =>
+    contact.name.toLowerCase().includes(filter.toLocaleLowerCase()),
+  );
 
   return (
     <div>
       <h1>Phonebook</h1>
-  <Formik initialValues={{filter: ''}}>
-  {() => (<SearchBox filter={filter} handleFilterChange={handleFilterChange}/>)}
-  </Formik>
-      <ContactForm/>
-      
-      <ContactList filteredContacts={filteredContacts}/>
+      <Formik initialValues={{ filter: '' }}>
+        {() => (
+          <div>
+            <SearchBox
+              filter={filter}
+              handleFilterChange={handleFilterChange}
+            />
+          </div>
+        )}
+      </Formik>
+      <ContactForm addContact={addContact} />
+      <ContactList filteredContacts={filteredContacts} />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
