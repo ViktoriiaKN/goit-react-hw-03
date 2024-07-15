@@ -3,7 +3,7 @@ import './App.css';
 import ContactForm from './components/ContactForm/ContactForm';
 import ContactList from './components/ContactList/ContactList';
 import SearchBox from './components/SearchBox/SearchBox';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -14,6 +14,10 @@ function App() {
   ]);
 
   const [filter, setFilter] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem('contacts', JSON.stringify(contacts))
+  }, [contacts]);
 
   const handleFilterChange = (e) => {
     setFilter(e.target.value);
