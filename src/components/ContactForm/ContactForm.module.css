@@ -1,4 +1,7 @@
 .formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   max-width: 400px;
   margin: 0 auto;
   padding: 20px;
@@ -8,7 +11,14 @@
 }
 
 .formField {
-  margin-bottom: 10px;
+ display: flex;
+ gap: 10px;
+
+}
+
+.formName {
+  display: flex;
+ gap: 26px;
 }
 
 .label {

@@ -22,16 +22,18 @@ resetForm();
 
   return (<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleSubmit}>
 <Form className={style.formContainer}>
-<div className={style.formField}>
+<div className={style.formName}>
   <label htmlFor="name" className={style.label}>Name</label>
   <Field name='name' type='text' className={style.inputField}/>
-  <ErrorMessage name='name' component='div' className={style.errorMessage}/>
+ 
 </div>
+<ErrorMessage name='name' component='div' className={style.errorMessage}/>
 <div className={style.formField}>
   <label htmlFor="number" className={style.label}>Number</label>
   <Field name='number' type='text' className={style.inputField}/>
-  <ErrorMessage name='number' component='div' className={style.errorMessage}/>
+  
 </div>
+<ErrorMessage name='number' component='div' className={style.errorMessage}/>
 <button type='submit' className={style.buttonSubmit}>Add Contact</button>
 </Form>
   </Formik>);
