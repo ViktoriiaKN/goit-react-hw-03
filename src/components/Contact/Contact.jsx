@@ -1,14 +1,15 @@
 import style from './Contact.module.css';
 
-const Contact = ({ contact }) => {
+const Contact = ({ contact, deleteContact }) => {
   return (
     <li className={style.contactItem}>
-      <div>
-        <p className={style.contactName}></p>
-        <p>
-          {contact.name}: {contact.number}{' '}
-        </p>
+      <div className={style.contactWrapper}>
+        <p className={style.contactName}>{contact.name}</p>
+        <p className={style.contactNumber}>{contact.number}</p>
       </div>
+      <button className={style.deleteButton} onClick={deleteContact}>
+        Delete
+      </button>
     </li>
   );
 };

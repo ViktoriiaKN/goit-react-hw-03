@@ -23,6 +23,10 @@ function App() {
     setContacts((prevContacts) => [...prevContacts, newContact]);
   };
 
+  const deleteContact = (id) => {
+    setContacts((prevContacts) => prevContacts.filter(contact => contact.id !== id));
+  };
+
   const filteredContacts = contacts.filter((contact) =>
     contact.name.toLowerCase().includes(filter.toLocaleLowerCase()),
   );
@@ -41,7 +45,7 @@ function App() {
         )}
       </Formik>
       <ContactForm addContact={addContact} />
-      <ContactList filteredContacts={filteredContacts} />
+      <ContactList filteredContacts={filteredContacts} deleteContact={deleteContact}/>
     </div>
   );
 }
