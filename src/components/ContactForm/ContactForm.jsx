@@ -11,12 +11,12 @@ const ContactForm = ({addContact}) => {
     number: Yup.string().min(3).max(50).required(),
   });
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, {resetForm}) => {
 const newContact = {
   id: nanoid(),
   ...values, //Spread
 }
-addContact(newContact);
+addContact(newContact)
 resetForm();
   }
 
